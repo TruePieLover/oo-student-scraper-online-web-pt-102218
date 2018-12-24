@@ -4,6 +4,7 @@ class Student
 
   @@all = []
 
+
   def initialize(student_hash)
     
   end
