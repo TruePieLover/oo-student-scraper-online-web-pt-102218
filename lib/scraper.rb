@@ -19,6 +19,7 @@ def self.scrape_index_page(index_url)
      studentHash
    end	   
 
+<<<<<<< HEAD
 def self.scrape_profile_page(profile_url)
     studentHash = {}
     html = Nokogiri::HTML(open(profile_url))
@@ -39,3 +40,25 @@ def self.scrape_profile_page(profile_url)
     studentHash
   end
 end
+=======
+  def self.scrape_profile_page(profile_url)
+      profile_page = Nokogiri::HTML(open(profile_url))
+      profile_url = {}
+      profile_page.css(".social-icon-container a").each do |social|
+      if social.attribute("href").value.include? ("twitter") 
+        profile_url[:twitter] = social.attribute("href").value 
+      elsif social.attribute("href").value.include?("linkedin") 
+          profile_url[:linkedin] = social.attribute("href").value 
+      elsif social.attribute("href").value.include? ("github") 
+           profile_url[:github] = social.attribute("href").value 
+      else 
+          profile_url[:blog] = social.attribute("href").value 
+        end
+      profile_url
+    end
+
+ 
+
+     
+     
+>>>>>>> 9a9f01b8cccc71be88ad4f1c6a29da1f1ab52fcf
